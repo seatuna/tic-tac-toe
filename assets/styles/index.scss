@@ -2,6 +2,7 @@ $background-color: #000;
 $font-color: #dfdfdf;
 $box-color: #808080;
 $board-color: #fff;
+$border-color: #00f;
 
 body {
   background-color: $background-color;
@@ -11,36 +12,38 @@ body {
   padding: 0;
 }
 
+.navbar {
+  background-color: $border-color;
+  height: 50px;
+  width: 100%;
+}
+
 .board {
   background-color: $board-color;
-  height: 615px;
-  position: relative;
+  height: 458px;
   margin: 0 auto;
-  width: 615px;
+  width: 458px;
 }
 
 .top {
-  background-color: $box-color;
+  background-color: $background-color;
   display: inline-block;
-  height: 200px;
-  margin: 1px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
 }
 
 .mid {
-  background-color: $box-color;
+  background-color: $background-color;
   display: inline-block;
-  height: 200px;
-  margin: 1px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
 }
 
 .bot {
-  background-color: $box-color;
+  background-color: $background-color;
   display: inline-block;
-  height: 200px;
-  margin: 1px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
 }
 
 h1 {
