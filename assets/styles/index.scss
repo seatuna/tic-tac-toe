@@ -1,8 +1,10 @@
-$background-color: #000;
+$background-color: #123;
 $font-color: #dfdfdf;
-$box-color: #808080;
+$score-color: #808080;
 $board-color: #fff;
-$border-color: #00f;
+$nav-color: #0e1b29;
+$button-color: #657c94;
+$button-border: #234567;
 
 body {
   background-color: $background-color;
@@ -12,40 +14,77 @@ body {
   padding: 0;
 }
 
+h1 {
+  text-align: center;
+}
+
 .navbar {
-  background-color: $border-color;
-  height: 50px;
+  background-color: $nav-color;
+  height: 40px;
   width: 100%;
+}
+
+.button-container {
+  background-color: $background-color;
+  height: 60px;
+  margin: 0 auto;
+  text-align: center;
+  width: 200px;
+}
+
+.button {
+  background-color: $button-color;
+  border-radius: 5px;
+  display: inline-block;
+  height: 35px;
+  line-height: 0;
+  text-align: center;
+  width: 100px;
+
 }
 
 .board {
   background-color: $board-color;
-  height: 458px;
+  height: 383px;
   margin: 0 auto;
-  width: 458px;
+  width: 383px;
 }
 
 .top {
   background-color: $background-color;
   display: inline-block;
-  height: 150px;
-  width: 150px;
+  height: 125px;
+  width: 125px;
 }
 
 .mid {
   background-color: $background-color;
   display: inline-block;
-  height: 150px;
-  width: 150px;
+  height: 125px;
+  width: 125px;
 }
 
 .bot {
   background-color: $background-color;
   display: inline-block;
-  height: 150px;
-  width: 150px;
+  height: 125px;
+  width: 125px;
 }
 
-h1 {
+.scoreboard {
+  background-color: $background-color;
+  height: 90px;
+  margin: 0 auto;
+  padding: 20px 0 0;
   text-align: center;
+  width: 300px;
+}
+
+.score {
+  background-color: $score-color;
+  display: inline-block;
+  height: 80px;
+  margin: 0 5px;
+  text-align: center;
+  width: 80px;
 }
