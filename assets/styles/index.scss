@@ -45,29 +45,16 @@ h1 {
 
 .board {
   background-color: $board-color;
-  height: 383px;
+  height: 387px;
   margin: 0 auto;
-  width: 383px;
+  width: 387px;
 }
 
-.top {
+.box {
   background-color: $background-color;
-  display: inline-block;
+  float: left;
   height: 125px;
-  width: 125px;
-}
-
-.mid {
-  background-color: $background-color;
-  display: inline-block;
-  height: 125px;
-  width: 125px;
-}
-
-.bot {
-  background-color: $background-color;
-  display: inline-block;
-  height: 125px;
+  margin: 2px;
   width: 125px;
 }
 
