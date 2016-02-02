@@ -13,12 +13,13 @@ let ties = 0;
 
 // starts game, click boxes to set x or o. Turn count will increase after one click
 // and change the player.  This should keep going until someone wins.
-let newGame = function() {
+
+let move = function() {
   $('.board').children().on('click', function() {
 
       if ($(this).hasClass('disable')) {
-        alert('Select a different box!');
-      } else if (turnCount === 0) {
+        $('.messages').text('Select another box!');
+      } else if (turnCount % 2 === 0) {
         $(this).text('x');
         $(this).last().addClass('disable');
         turnCount++;
@@ -27,9 +28,8 @@ let newGame = function() {
         $(this).last().addClass('disable');
         turnCount++;
       }
-
   });
-};
+}
 
 // win conditions.  If row or column or diagonal === x or o, then winner = player.
 // let victory = function () {
@@ -128,7 +128,5 @@ $('#newgame').on('click', clearBoard()); */
 
 $(document).ready(() => {
   console.log('It works.');
-  newGame();
-  victory();
-  score();
+  move();
 });

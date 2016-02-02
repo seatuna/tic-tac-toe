@@ -6,4 +6,4 @@
 // use require without a reference to ensure a file is bundled
 require('./tic-tac-toe');
 
-console.log('hi');
+console.log('hello');

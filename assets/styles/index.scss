@@ -26,7 +26,7 @@ h1 {
 
 .button-container {
   background-color: $background-color;
-  height: 60px;
+  height: auto;
   margin: 0 auto;
   text-align: center;
   width: 200px;
@@ -41,6 +41,15 @@ h1 {
   text-align: center;
   width: 100px;
 
+}
+
+.messages {
+  background-color: $background-color;
+  height: 25px;
+  margin: 0 auto;
+  padding-top: 10px;
+  text-align: center;
+  width: 387px;
 }
 
 .board {
@@ -70,8 +79,8 @@ h1 {
 .score {
   background-color: $score-color;
   display: inline-block;
-  height: 80px;
+  height: 60px;
   margin: 0 5px;
   text-align: center;
-  width: 80px;
+  width: 60px;
 }
