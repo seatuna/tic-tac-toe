@@ -35,7 +35,6 @@ let score = function() {
   } else if (winner === 'tie'){
     ties++;
     $('#ties').text(ties);
-    console.log('do ties work');
   }
 };
 

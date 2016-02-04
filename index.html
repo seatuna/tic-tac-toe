@@ -1,47 +1,141 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Tic Tac Toe</title>
-    </head>
-    <body>
 
-      <header>
-        <div class="navbar"></div>
-        <h1>Tic Tac Toe</h1>
-      </header>
+<head>
+  <title>Tic Tac Toe</title>
+</head>
 
-      <div class="button-container">
-        <div class="button" id="#newGame"><h4>New Game</h4></div>
-      </div>
+<body>
 
-      <div class="messages"></div>
+  <header>
 
-      <div class="board">
-        <div class="box" id="1"></div>
-        <div class="box" id="2"></div>
-        <div class="box" id="3"></div>
-        <div class="box" id="4"></div>
-        <div class="box" id="5"></div>
-        <div class="box" id="6"></div>
-        <div class="box" id="7"></div>
-        <div class="box" id="8"></div>
-        <div class="box" id="9"></div>
-      </div>
+    <!-- Start Bootstrap navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Account
+          </button>
 
-      <div class="scoreboard">
-          <div class="score-text">Player 1<br/><br/>
-            <div class="score p1" id="p1"><br/><br/></div>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Account</h4>
+                </div>
+                <div class="modal-body">
+                  <!-- Begin account forms -->
+                  <!-- reg / login form -->
+                  <form>
+                    <div class="form-group">
+                      <label for="register-form">Register</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-default">Register</button>
+                  </form>
+                  <!-- reg / login form -->
+                  <br/>
+                  <br/>
+
+                  <!-- Sign in form -->
+                  <form>
+                    <div class="form-group">
+                      <label for="signin-form">Sign In</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <button type="signin" class="btn btn-default">Sign in</button>
+                  </form>
+                    <!-- End sign in form -->
+                    <br/>
+                    <br/>
+
+                    <!-- Change password form -->
+                  </form>
+                  <div class="form-group">
+                    <label for="change-password">Change Password</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn btn-default">Change Password</button>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="score-text">Ties<br/><br/>
-            <div class="score ties" id="ties"><br/><br/></div>
-          </div>
-          <div class="score-text">Player 2<br/><br/>
-            <div class="score p2" id="p2"><br/><br/></div>
         </div>
+        </form>
       </div>
+      <!-- End account forms -->
+    </nav>
+    <!-- end Bootstrap navbar-->
 
-      <script src="http://localhost:8080/webpack-dev-server.js"></script>
-      <script src="vendor.bundle.js" type="text/javascript" charset="utf-8"></script>
-      <script src="bundle.js" type="text/javascript" charset="utf-8"></script>
-    </body>
+    <h1>Tic Tac Toe</h1>
+  </header>
+
+  <div class="button-container">
+    <div class="button" id="#newGame">
+      <h4>New Game</h4></div>
+  </div>
+
+  <div class="messages"></div>
+
+  <div class="board">
+    <div class="box" id="1"></div>
+    <div class="box" id="2"></div>
+    <div class="box" id="3"></div>
+    <div class="box" id="4"></div>
+    <div class="box" id="5"></div>
+    <div class="box" id="6"></div>
+    <div class="box" id="7"></div>
+    <div class="box" id="8"></div>
+    <div class="box" id="9"></div>
+  </div>
+
+  <div class="scoreboard">
+    <div class="score-text">Player 1
+      <br/>
+      <br/>
+      <div class="score p1" id="p1">
+        <br/>
+        <br/>
+      </div>
+    </div>
+    <div class="score-text">Ties
+      <br/>
+      <br/>
+      <div class="score ties" id="ties">
+        <br/>
+        <br/>
+      </div>
+    </div>
+    <div class="score-text">Player 2
+      <br/>
+      <br/>
+      <div class="score p2" id="p2">
+        <br/>
+        <br/>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://localhost:8080/webpack-dev-server.js"></script>
+  <script src="vendor.bundle.js" type="text/javascript" charset="utf-8"></script>
+  <script src="bundle.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
 </html>
