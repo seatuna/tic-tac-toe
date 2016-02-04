@@ -36,7 +36,6 @@ h1 {
   background-color: $button-color;
   border-radius: 5px;
   display: inline-block;
-  height: 35px;
   line-height: 0;
   text-align: center;
   width: 100px;
@@ -54,33 +53,38 @@ h1 {
 
 .board {
   background-color: $board-color;
-  height: 387px;
+  height: 312px;
   margin: 0 auto;
-  width: 387px;
+  width: 312px;
 }
 
 .box {
   background-color: $background-color;
   float: left;
-  height: 125px;
+  height: 100px;
   margin: 2px;
-  width: 125px;
+  width: 100px;
 }
 
 .scoreboard {
-  background-color: $background-color;
-  height: 90px;
+  background-color: $font-color;
+  height: 80px;
   margin: 0 auto;
   padding: 20px 0 0;
   text-align: center;
-  width: 300px;
+  width: 312px;
 }
 
-.score {
-  background-color: $score-color;
+.score-text {
+  background-color: $background-color;
+  color: $font-color;
   display: inline-block;
-  height: 60px;
+  font-size: 16px;
   margin: 0 5px;
   text-align: center;
   width: 60px;
+}
+
+.score-number {
+  background-color: $background-color;
 }
