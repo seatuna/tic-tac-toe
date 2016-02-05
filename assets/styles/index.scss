@@ -2,7 +2,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 $background-color: #123;
-$font-color: #dfdfdf;
+$font-color: #000;
 $score-color: #808080;
 $board-color: #fff;
 $nav-color: #0e1b29;
@@ -11,6 +11,8 @@ $button-border: #234567;
 
 body {
   background-color: $background-color;
+  background-image: url('http://www.tofslie.com/hey/wp-content/uploads/2008/06/1.jpeg');
+  background-position: center;
   color: $font-color;
   display: block;
   margin: 0;
@@ -23,12 +25,12 @@ h1 {
 
 .navbar {
   background-color: $nav-color;
+  border: 0;
   height: 40px;
   width: 100%;
 }
 
 .button-container {
-  background-color: $background-color;
   height: auto;
   margin: 0 auto;
   text-align: center;
@@ -46,7 +48,6 @@ h1 {
 }
 
 .messages {
-  background-color: $background-color;
   height: 25px;
   margin: 0 auto;
   padding-top: 10px;
@@ -64,13 +65,14 @@ h1 {
 .box {
   background-color: $background-color;
   float: left;
+  font-size: 50px;
   height: 100px;
   margin: 2px;
+  text-align: center;
   width: 100px;
 }
 
 .scoreboard {
-  background-color: $font-color;
   height: 80px;
   margin: 0 auto;
   padding: 20px 0 0;
@@ -79,7 +81,6 @@ h1 {
 }
 
 .score-text {
-  background-color: $background-color;
   color: $font-color;
   display: inline-block;
   font-size: 16px;
@@ -89,5 +90,5 @@ h1 {
 }
 
 .score-number {
-  background-color: $background-color;
+  background-color: transparent;
 }

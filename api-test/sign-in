@@ -1,0 +1,41 @@
+#!/bin/bash
+
+EMAIL="food@nomnomnom.com"
+PASSWORD="swimming"
+
+BASE_URL="http://10.13.105.91:3000"
+URL="${BASE_URL}/sign-in"
+
+url() {
+
+  CONTENT_TYPE="application/x-www-form-urlencoded" #also called Form Data
+
+  curl ${URL} \
+  --include \ #tells curl to not show progress meter or error messages, but will still output data you asked for
+  --request POST \
+  --header "Content-Type: ${CONTENT_TYPE}" \
+  --data-urlencode "credentials[email]=${EMAIL}" \
+  --data-urlencode "credentials[password]=${PASSWORD}"
+
+}
+
+json() {
+
+  CONTENT_TYPE="application/json"
+
+  curl ${URL} \
+  --include \
+  --request POST \
+  --header "Content-Type: ${CONTENT_TYPE}" \
+  --data "{
+    \"credentials\": {
+      \"email\": \"${EMAIL}\",
+      \"password\": \"${PASSWORD}\"
+    }
+  }"
+
+}
+
+json #runs script, doesn't need () in shell script
+
+echo
