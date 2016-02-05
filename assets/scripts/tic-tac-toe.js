@@ -55,25 +55,21 @@ console.log('attempting save game');
 };
 
 // view history
-// let viewHistory = function () {
-//     $.ajax({
-//       url: myApp.baseUrl + '/games',
-//       // url: 'http://httpbin.org/post',
-//       headers: {
-//         Authorization: 'Token token=' + myApp.user.token,
-//       },
-//       method: 'GET',
-//       contentType: false,
-//       processData: false,
-//     }).done(function(data) {
-//       myApp.game = data.game;
-//       // $('')JSON.stringify(data);
-//       $('.viewHistory').text(JSON.stringify(data));
-//       console.log(data);
-//     }).fail(function(jqxhr) {
-//       console.error(jqxhr);
-//     });
-// };
+let gameCount = function () {
+    $.ajax({
+      url: myApp.baseUrl + '/games',
+      // url: 'http://httpbin.org/post',å
+      headers: {
+        Authorization: 'Token token=' + myApp.user.token,
+      },
+      type: 'GET',
+    }).done(function(data) {
+      $('#gameCount').html(data.games.length);
+      console.log(data.games.length);
+    }).fail(function(jqxhr) {
+      console.error(jqxhr);
+    });
+};
 
   // Sign up
   $('#sign-up').on('submit', function(e) {
@@ -190,6 +186,7 @@ let clearBoard = function() {
 $('.btn-new-game').on('click', function () {
   clearBoard();
   createGame();
+  gameCount();
 });
 
 let score = function() {
@@ -230,12 +227,10 @@ let checkWin = function() {
       gameStatus = 'inactive';
       $('.messages').text('Congrats! ' + player + ' wins!');
       score();
-      // viewHistory();
     } else if ($('.box').text().length === 9){
       winner = 'tie';
       $('.messages').text('It\'s a tie!');
       score();
-      // viewHistory();
     } else {
       return false;
     }
