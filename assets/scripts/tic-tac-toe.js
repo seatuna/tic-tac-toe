@@ -10,7 +10,6 @@ let createGame = function() {
 
     $.ajax({
       url: myApp.baseUrl + '/games',
-      // url: 'http://httpbin.org/post',
       headers: {
         Authorization: 'Token token=' + myApp.user.token,
       },
@@ -29,10 +28,8 @@ let createGame = function() {
 // Save game state
 
 let saveGame = function (player, index) {
-console.log('attempting save game');
   $.ajax({
     url: myApp.baseUrl + '/games/' + myApp.game.id,
-    // url: 'http://httpbin.org/post',
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + myApp.user.token,
@@ -54,17 +51,17 @@ console.log('attempting save game');
   });
 };
 
-// view history
+// Update total game counter
+
 let gameCount = function () {
     $.ajax({
       url: myApp.baseUrl + '/games',
-      // url: 'http://httpbin.org/post',å
       headers: {
         Authorization: 'Token token=' + myApp.user.token,
       },
       type: 'GET',
     }).done(function(data) {
-      $('#gameCount').html(data.games.length);
+      $('.gameCount').text(data.games.length);
       console.log(data.games.length);
     }).fail(function(jqxhr) {
       console.error(jqxhr);
@@ -77,7 +74,6 @@ let gameCount = function () {
     var formData = new FormData(e.target);
     $.ajax({
       url: myApp.baseUrl + '/sign-up',
-      // url: 'http://httpbin.org/post',
       method: 'POST',
       contentType: false,
       processData: false,
@@ -95,7 +91,6 @@ let gameCount = function () {
     var formData = new FormData(e.target);
     $.ajax({
       url: myApp.baseUrl + '/sign-in',
-      // url: 'http://httpbin.org/post',
       method: 'POST',
       contentType: false,
       processData: false,
@@ -105,6 +100,7 @@ let gameCount = function () {
       createGame();
       $('.board').show();
       $('.messages').text('');
+      $('.gameCount').text(gameCount());
       console.log(data);
     }).fail(function(jqxhr) {
       console.error(jqxhr);
@@ -124,7 +120,6 @@ let gameCount = function () {
 
     $.ajax({
       url: myApp.baseUrl + '/change-password/' + myApp.user.id,
-      // url: 'http://httpbin.org/post',
       method: 'PATCH',
       headers: {
         Authorization: 'Token token=' + myApp.user.token,
@@ -150,18 +145,24 @@ let gameCount = function () {
 
     $.ajax({
       url: myApp.baseUrl + '/sign-out/' + myApp.user.id,
-      // url: 'http://httpbin.org/post',
       method: 'DELETE',
       headers: {
         Authorization: 'Token token=' + myApp.user.token,
       },
     }).done(function(data) {
+      $('.board').hide();
+      $('#p1').text('0');
+      $('#p2').text('0');
+      $('#ties').text('0');
+      $('.gameCount').text('0');
       console.log(data);
     }).fail(function(jqxhr) {
       console.error(jqxhr);
     });
   });
-// AJAX
+// END AJAX
+
+// Start Game Logic
 
 let winner;
 let player = 'x';
@@ -187,6 +188,7 @@ $('.btn-new-game').on('click', function () {
   clearBoard();
   createGame();
   gameCount();
+  $('.messages').text('');
 });
 
 let score = function() {
@@ -261,4 +263,5 @@ $(document).ready(() => {
   move();
   $('.board').hide();
   $('.messages').text('Please sign in!');
+
 });
