@@ -8,6 +8,7 @@ $board-color: #fff;
 $nav-color: #0e1b29;
 $button-color: #657c94;
 $button-border: #234567;
+$white: #fff;
 
 body {
   background-color: $background-color;
@@ -82,7 +83,7 @@ h1 {
 
 .score-text {
   color: $font-color;
-  display: inline-block;
+  float: left;
   font-size: 16px;
   margin: 0 5px;
   text-align: center;
@@ -90,5 +91,5 @@ h1 {
 }
 
 .score-number {
-  background-color: transparent;
+  background-color: $white;
 }
