@@ -35,5 +35,4 @@ with register, sign in, change password forms, and a sign out button.
 ## Unsolved Problems
 * Game logic breaks when not signed in, does not switch player.
 * Temporary fix: Disable game play while logged out
-* GET request does not work, total game counter remains blank on the scoreboard
 * The scoreboard moves the first time scores are entered for each category
