@@ -3,11 +3,10 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 $background-color: #123;
 $font-color: #000;
-$score-color: #808080;
+$btn-color: #ccc;
 $board-color: #fff;
 $nav-color: #0e1b29;
-$button-color: #657c94;
-$button-border: #234567;
+$button-hover-color: #657c94;
 $white: #fff;
 
 body {
@@ -38,20 +37,11 @@ h1 {
   width: 200px;
 }
 
-.button {
-  background-color: $button-color;
-  border-radius: 5px;
-  display: inline-block;
-  line-height: 0;
-  text-align: center;
-  width: 100px;
-
-}
-
 .messages {
+  font-size: 24px;
   height: 25px;
   margin: 0 auto;
-  padding-top: 10px;
+  padding-top: 20px;
   text-align: center;
   width: 387px;
 }
@@ -92,4 +82,16 @@ h1 {
 
 .score-number {
   background-color: $white;
+}
+
+.btn {
+  background-color: $btn-color;
+  border: 0;
+  color: $font-color;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: $button-hover-color;
+  color: $white;
 }
