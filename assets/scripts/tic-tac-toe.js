@@ -60,10 +60,12 @@ let gameCount = function () {
         Authorization: 'Token token=' + myApp.user.token,
       },
       type: 'GET',
-    }).done(function(data) {
+    })
+    .done(function(data) {
       $('.gameCount').text(data.games.length);
       console.log(data.games.length);
-    }).fail(function(jqxhr) {
+    })
+    .fail(function(jqxhr) {
       console.error(jqxhr);
     });
 };
@@ -138,11 +140,6 @@ let gameCount = function () {
   $('#sign-out').on('click', function(e) {
     e.preventDefault();
 
-    if (!myApp.user) {
-      console.error('Wrong!');
-      return;
-    }
-
     $.ajax({
       url: myApp.baseUrl + '/sign-out/' + myApp.user.id,
       method: 'DELETE',
@@ -165,23 +162,27 @@ let gameCount = function () {
 // Start Game Logic
 
 let winner;
-let player = 'x';
+let x = '<img src="../images/red.png">';
+let o = '<img src="../images/green.png">';
+let player = x;
 let xWins = 0;
 let oWins = 0;
 let ties = 0;
-let gameStatus = 'active';
+let gameStatus = 'active'; // clicks are disabled when game is inactive
+let turnCount = 0; // used to determine if there is a tie
 
 let switchPlayer = function() {
-  if (player === 'x') {
-    player = 'o';
+  if (player === x) {
+    player = o;
   } else {
-    player = 'x';
+    player = x;
   }
 };
 
 let clearBoard = function() {
     $('.box').text('');
     gameStatus = 'active';
+    turnCount = 0;
 };
 
 $('.btn-new-game').on('click', function () {
@@ -192,10 +193,10 @@ $('.btn-new-game').on('click', function () {
 });
 
 let score = function() {
-  if (winner === 'x') {
+  if (winner === x) {
     xWins++;
     $('#p1').text(xWins);
-  } else if (winner === 'o') {
+  } else if (winner === o) {
     oWins++;
     $('#p2').text(oWins);
   } else if (winner === 'tie'){
@@ -209,7 +210,7 @@ let $BoxId = function(num) {
 };
 
 let checkWinCombo = function(a, b, c) {
-  if ($BoxId(a).text() === player && $BoxId(b).text() === player && $BoxId(c).text() === player) {
+  if ($BoxId(a).html() === player && $BoxId(b).html() === player && $BoxId(c).html() === player) {
     return true;
   } else {
     return false;
@@ -227,11 +228,15 @@ let checkWin = function() {
     checkWinCombo(2, 4, 6)) {
       winner = player;
       gameStatus = 'inactive';
-      $('.messages').text('Congrats! ' + player + ' wins!');
+      if (player === x) {
+        $('.messages').text('Congrats! Red wins!');
+      } else if (player === o) {
+        $('.messages').text('Congrats! Green wins!');
+      }
       score();
-    } else if ($('.box').text().length === 9){
+    } else if (turnCount === 8) {
       winner = 'tie';
-      $('.messages').text('It\'s a tie!');
+      $('.messages').text('It\'s a tie!'); // fix ties
       score();
     } else {
       return false;
@@ -241,16 +246,19 @@ let checkWin = function() {
 let move = function() {
   $('.box').on('click', function() {
     if(gameStatus === 'active') {
-        if ($(this).text() !== '') {
+        if ($(this).html() !== '') {
           $('.messages').text('Select another box!');
-        } else if (player === 'x') {
-          $(this).text('x');
-          saveGame('x', event.target.id);
+        } else if (player === x) {
+          // $(this).text('x');
+          $(this).empty().append('<img src="../images/red.png">');
+          saveGame('red', event.target.id);
         } else {
-          $(this).text('o');
-          saveGame('o', event.target.id);
+          // $(this).text('o');
+          $(this).empty().append('<img src="../images/green.png">');
+          saveGame('green', event.target.id);
         }
         checkWin();
+        turnCount++;
         switchPlayer();
     }
   });
@@ -263,5 +271,4 @@ $(document).ready(() => {
   move();
   $('.board').hide();
   $('.messages').text('Please sign in!');
-
 });
