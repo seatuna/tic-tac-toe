@@ -202,8 +202,8 @@ webpackJsonp([0],[
 	// Start Game Logic
 
 	var winner = undefined;
-	var x = '<img src="images/red.png">'; // Red mushroom
-	var o = '<img src="images/green.png">'; // Green 1up mushroom
+	var x = '<img src="http://img.photobucket.com/albums/v53/chibi_ynm/red_zpsmqrv6gkb.png">'; // Red mushroom
+	var o = '<img src="http://img.photobucket.com/albums/v53/chibi_ynm/green_zps8csozywv.png">'; // Green 1up mushroom
 	var player = x; // Game starts with red mushroom going first
 	var xWins = 0;
 	var oWins = 0;
