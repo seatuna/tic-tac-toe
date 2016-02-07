@@ -1,6 +1,6 @@
 'use strict';
 
-// AJAX
+// AJAX ---------------------------------------------------------------------
 const myApp = {
   baseUrl: 'http://tic-tac-toe.wdibos.com'
 };
@@ -157,14 +157,14 @@ let gameCount = function () {
       console.error(jqxhr);
     });
   });
-// END AJAX
+// END AJAX ----------------------------------------------------------------
 
 // Start Game Logic
 
 let winner;
-let x = '<img src="../images/red.png">';
-let o = '<img src="../images/green.png">';
-let player = x;
+let x = '<img src="../images/red.png">'; // Red mushroom
+let o = '<img src="../images/green.png">'; // Green 1up mushroom
+let player = x; // Game starts with red mushroom going first
 let xWins = 0;
 let oWins = 0;
 let ties = 0;
@@ -180,19 +180,19 @@ let switchPlayer = function() {
 };
 
 let clearBoard = function() {
-    $('.box').text('');
+    $('.box').text(''); // clears mushrooms from board
     gameStatus = 'active';
-    turnCount = 0;
+    turnCount = 0; // resets turn count
 };
 
 $('.btn-new-game').on('click', function () {
   clearBoard();
-  createGame();
-  gameCount();
-  $('.messages').text('');
+  createGame(); // creates new game in the back end
+  gameCount(); // increases player's total game count
+  $('.messages').text(''); // clears messages
 });
 
-let score = function() {
+let score = function() { // increments score
   if (winner === x) {
     xWins++;
     $('#p1').text(xWins);
@@ -205,11 +205,11 @@ let score = function() {
   }
 };
 
-let $BoxId = function(num) {
+let $BoxId = function(num) { // converts ID of box to jQuery, instead of typing $('#1') etc individually
   return $('#' + num);
 };
 
-let checkWinCombo = function(a, b, c) {
+let checkWinCombo = function(a, b, c) { // checks if html contents of 3 boxes are the same as current player
   if ($BoxId(a).html() === player && $BoxId(b).html() === player && $BoxId(c).html() === player) {
     return true;
   } else {
@@ -227,44 +227,42 @@ let checkWin = function() {
     checkWinCombo(0, 4, 8) ||
     checkWinCombo(2, 4, 6)) {
       winner = player;
-      gameStatus = 'inactive';
+      gameStatus = 'inactive'; // disables click after winner is determined
       if (player === x) {
         $('.messages').text('Congrats! Red wins!');
       } else if (player === o) {
         $('.messages').text('Congrats! Green wins!');
       }
       score();
-    } else if (turnCount === 8) {
+    } else if (turnCount === 8) { // assigns a tie if 8 turns have passed and there is no winner
       winner = 'tie';
-      $('.messages').text('It\'s a tie!'); // fix ties
+      $('.messages').text('It\'s a tie!');
       score();
     } else {
-      return false;
+      return false; // allows game to continue if no winner is determined
     }
 };
 
 let move = function() {
   $('.box').on('click', function() {
     if(gameStatus === 'active') {
-        if ($(this).html() !== '') {
+        if ($(this).html() !== '') { // if clicked box is occupied, display message
           $('.messages').text('Select another box!');
+          return false; // skips switchPlayer() so the next click won't be the same colored mushroom
         } else if (player === x) {
-          // $(this).text('x');
-          $(this).empty().append('<img src="../images/red.png">');
-          saveGame('red', event.target.id);
+          $(this).empty().append('<img src="../images/red.png">'); // adds image to click box
+          // saveGame('red', event.target.id); // event.target.id somehow is disrupting play when not logged in
         } else {
-          // $(this).text('o');
           $(this).empty().append('<img src="../images/green.png">');
-          saveGame('green', event.target.id);
+          // saveGame('green', event.target.id);
         }
         checkWin();
         turnCount++;
+        saveGame(player, event.target.id); // interfering with switchPlayer() when not logged in, should fix in future
         switchPlayer();
     }
   });
 };
-
-// $('.board').children().on('click', function () { event.target.id; })
 
 $(document).ready(() => {
   console.log('It works.');
