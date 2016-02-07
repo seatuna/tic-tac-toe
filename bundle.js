@@ -288,10 +288,10 @@ webpackJsonp([0],[
 	        $('.messages').text('Select another box!');
 	        return false; // skips switchPlayer() so the next click won't be the same colored mushroom
 	      } else if (player === x) {
-	          $(this).empty().append('<img src="../images/red.png">'); // adds image to click box
+	          $(this).empty().append('<img src="https://raw.githubusercontent.com/seatuna/tic-tac-toe/gh-pages/assets/images/red.png">'); // adds image to click box
 	          // saveGame('red', event.target.id); // event.target.id somehow is disrupting play when not logged in
 	        } else {
-	            $(this).empty().append('<img src="../images/green.png">');
+	            $(this).empty().append('<img src="https://raw.githubusercontent.com/seatuna/tic-tac-toe/gh-pages/assets/images/green.png">');
 	            // saveGame('green', event.target.id);
 	          }
 	      checkWin();
