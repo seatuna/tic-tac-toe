@@ -162,8 +162,8 @@ $('#sign-out').on('click', function(e) {
 // Start Game Logic
 
 let winner;
-let x = '<img src="images/red.png">'; // Red mushroom
-let o = '<img src="images/green.png">'; // Green 1up mushroom
+let x = '<img src="https://raw.githubusercontent.com/seatuna/tic-tac-toe/gh-pages/assets/images/red.png">'; // Red mushroom
+let o = '<img src="https://raw.githubusercontent.com/seatuna/tic-tac-toe/gh-pages/assets/images/green.png">'; // Green 1up mushroom
 let player = x; // Game starts with red mushroom going first
 let xWins = 0;
 let oWins = 0;
