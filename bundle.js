@@ -202,8 +202,8 @@ webpackJsonp([0],[
 	// Start Game Logic
 
 	var winner = undefined;
-	var x = '<img src="assets/images/red.png">'; // Red mushroom
-	var o = '<img src="assets/images/green.png">'; // Green 1up mushroom
+	var x = '<img src="https://raw.githubusercontent.com/seatuna/tic-tac-toe/gh-pages/assets/images/red.png">'; // Red mushroom
+	var o = '<img src="https://raw.githubusercontent.com/seatuna/tic-tac-toe/gh-pages/assets/images/green.png">'; // Green 1up mushroom
 	var player = x; // Game starts with red mushroom going first
 	var xWins = 0;
 	var oWins = 0;
