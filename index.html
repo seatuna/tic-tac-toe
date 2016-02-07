@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Tic Tac Toe</title>
+  <title>Tic Tac Toe: Mushroom Wars</title>
 </head>
 
 <body>
@@ -12,12 +12,12 @@
     <!-- Start Bootstrap navbar -->
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-          <div class="gameTurns"></div>
+        <div class="gameTurns"></div>
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
 
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
             Account
           </button>
 
@@ -27,10 +27,9 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Account</h4>
+                  <h4 class="account-modal" id="myModalLabel">Account</h4>
                 </div>
                 <div class="modal-body">
-                  <!-- Begin account forms -->
                   <!-- reg / login form -->
                   <form id='sign-up'>
                     <div class="form-group">
@@ -40,7 +39,7 @@
                     <div class="form-group">
                       <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-default">Register</button>
+                    <button type="submit" class="btn submit">Register</button>
                   </form>
                   <!-- reg / login form -->
                   <br/>
@@ -55,23 +54,23 @@
                     <div class="form-group">
                       <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
                     </div>
-                    <button type="signin" class="btn btn-default">Sign in</button>
+                    <button type="submit" class="btn submit">Sign in</button>
                   </form>
-                    <!-- End sign in form -->
-                    <br/>
-                    <br/>
+                  <!-- End sign in form -->
+                  <br/>
+                  <br/>
 
-                    <!-- Change password form -->
-                <form id="change-password">
-                  <div class="form-group">
-                    <label for="change-password">Change Password</label>
-                    <input type="password" class="form-control" name="passwords[old]" placeholder="Old Password">
-                  </div>
-                  <div class="form-group">
-                    <input type="password" class="form-control" name="passwords[new]" placeholder="New Password">
-                  </div>
-                  <button type="submit" class="btn btn-default">Change Password</button>
-                </form>
+                  <!-- Change password form -->
+                  <form id="change-password">
+                    <div class="form-group">
+                      <label for="change-password">Change Password</label>
+                      <input type="password" class="form-control" name="passwords[old]" placeholder="Old Password">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control" name="passwords[new]" placeholder="New Password">
+                    </div>
+                    <button type="submit" class="btn submit">Change Password</button>
+                  </form>
                   <!-- End change password form -->
                   <br/>
                   <br/>
@@ -90,10 +89,11 @@
         </form>
       </div>
       <!-- End account forms -->
+
     </nav>
     <!-- end Bootstrap navbar-->
 
-    <h1>Tic Tac Toe</h1>
+    <h1>Tic Tac Toe: Mushroom Wars</h1>
   </header>
 
   <div class="button-container">
@@ -101,7 +101,8 @@
   </div>
 
   <div class="messages"></div>
-<br/><br/>
+  <br/>
+  <br/>
   <div class="board">
     <div class="box" id="0"></div>
     <div class="box" id="1"></div>
@@ -115,10 +116,10 @@
   </div>
 
   <div class="scoreboard">
-    <div class="score-text">Player 1
+    <div class="score-text">Red
       <br/>
       <br/>
-      <div class="score-number p1" id="p1">
+      <div class="score-number p1" id="p1">0
         <br/>
         <br/>
       </div>
@@ -126,23 +127,23 @@
     <div class="score-text">Ties
       <br/>
       <br/>
-      <div class="score-number ties" id="ties">
+      <div class="score-number ties" id="ties">0
         <br/>
         <br/>
       </div>
     </div>
-    <div class="score-text">Player 2
+    <div class="score-text">Green
       <br/>
       <br/>
-      <div class="score-number p2" id="p2">
+      <div class="score-number p2" id="p2">0
         <br/>
         <br/>
       </div>
     </div>
-    <div class="score-text" id="Game Count">Games
+    <div class="score-text">Games
       <br/>
       <br/>
-      <div class="score-number" id="#gameCount">
+      <div class="score-number gameCount" id="#gameCount">0
         <br/>
         <br/>
       </div>
