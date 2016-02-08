@@ -22,7 +22,7 @@ password, or logout.
 
 ## Wireframe
 
-![Wireframe](http://img.photobucket.com/albums/v53/chibi_ynm/wireframe_zpsvhjikgob.jpg)
+[Click here](http://img.photobucket.com/albums/v53/chibi_ynm/wireframe_zpsvhjikgob.jpg) to view the wireframe.
 
 ## Creation Process
 
