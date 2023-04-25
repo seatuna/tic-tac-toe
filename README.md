@@ -1,5 +1,7 @@
 # Documentation
 
+Note: The API and database for this project were originally hosted on Heroku's free tier which is sadly no longer available. Unfortunately, that means this game is no longer fully functional.
+
 ## The Game
 
 [Tic Tac Toe](http://seatuna.github.io/tic-tac-toe/index.html)
